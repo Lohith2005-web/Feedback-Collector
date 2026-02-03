@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>All Feedbacks</title>
+</head>
+
+<body>
+    <h1>All Feedbacks</h1>
+    <a href="{% url 'index' %}">Submit New Feedback</a>
+    <br><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+            <tr>
+                <td>{{ feedback.timestamp }}</td>
+                <td>{{ feedback.name }}</td>
+                <td>{{ feedback.email }}</td>
+                <td>{{ feedback.message }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No feedback yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

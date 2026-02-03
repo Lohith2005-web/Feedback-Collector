@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+</head>
+<body>
+    <h1>Submit Feedback</h1>
+    <form action="{% url 'submit' %}" method="post">
+        {% csrf_token %}
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+        
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+        
+        <label>Message:</label><br>
+        <textarea name="message" required></textarea><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <a href="{% url 'feedbacks' %}">View All Feedbacks</a>
+</body>
+</html>
